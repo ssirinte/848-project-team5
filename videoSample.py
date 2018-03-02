@@ -9,8 +9,9 @@ while(True):
     ret, frame = cap.read()
 
     #if count == 0:
-    #    cv2.imwrite("frame.jpg", frame)
-
+        #cv2.imwrite("frame.jpg", frame)
+    #fgbg = cv2.BackgroundSubtractorMOG()
+    
     #count += 1
     # Our operations on the frame come here
 
@@ -23,11 +24,16 @@ while(True):
     ]
 
     # Display the resulting frame
-    lower = np.array([0, 0, 0], dtype = "uint8")
-    upper = np.array([50, 50, 255], dtype = "uint8")
+    lower = np.array([60, 0, 0], dtype = "uint8")
+    upper = np.array([140, 100, 100], dtype = "uint8")
  
     # find the colors within the specified boundaries and apply
     # the mask
+    #fgmask = fgbg.apply(frame)
+
+    #equ = cv2.equalizeHist(frame)
+
+    #cv2.imshow('frame',fgmask)
     mask = cv2.inRange(frame, lower, upper)
     output = cv2.bitwise_and(frame, frame, mask = mask)
  
