@@ -70,7 +70,7 @@ while(True):
 
     # Display the resulting frame
     lower = np.array([-7, 100, 100], dtype = "uint8")
-    upper = np.array([13, 255, 255], dtype = "uint8")
+    upper = np.array([255, 255, 255], dtype = "uint8")
  
     # find the colors within the specified boundaries and apply
     # the mask
