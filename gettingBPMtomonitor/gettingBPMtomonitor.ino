@@ -32,7 +32,7 @@ void setup() {
 
   // Double-check the "pulseSensor" object was created and "began" seeing a signal. 
    if (pulseSensor.begin()) {
-    Serial.println("We created a pulseSensor Object !");  //This prints one time at Arduino power-up,  or on Arduino reset.  
+    //Serial.println("We created a pulseSensor Object !");  //This prints one time at Arduino power-up,  or on Arduino reset.  
   }
 }
 
@@ -41,13 +41,16 @@ void setup() {
 void loop() {
 
  int myBPM = pulseSensor.getBeatsPerMinute();  // Calls function on our pulseSensor object that returns BPM as an "int".
-                                               // "myBPM" hold this BPM value now. 
+ int myoVal = analogRead(A1);                                             // "myBPM" hold this BPM value now. 
 
 if (pulseSensor.sawStartOfBeat()) {            // Constantly test to see if "a beat happened". 
- Serial.println("♥  A HeartBeat Happened ! "); // If test is "true", print a message "a heartbeat happened".
- Serial.print("BPM: ");                        // Print phrase "BPM: " 
- Serial.println(myBPM);                        // Print the value inside of myBPM. 
+ //Serial.println("♥  A HeartBeat Happened ! "); // If test is "true", print a message "a heartbeat happened".
+ //Serial.print("BPM: ");                        // Print phrase "BPM: " 
+ //Serial.println(myBPM); 
 }
+  Serial.print(myoVal);
+  Serial.print(",");
+  Serial.println(myBPM);
 
   delay(20);                    // considered best practice in a simple sketch.
 
